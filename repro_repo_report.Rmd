@@ -1,0 +1,51 @@
+---
+title: "Reproducible_report"
+author: "Will Pitchers"
+date: "25 August 2015"
+output: word_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+* So maybe I have lists of things:  
+  + thing 1  
+  + thing 2  
+  + tacos  
+  + Ned Niederlander  
+
+
+...and maybe there are tables involved:
+
+name    | legs
+--------|------
+thing 1 | 4
+thing 2 | 4
+tacos   | 0
+Ned Niederlander | 2
+
+```{r}
+
+library(ggplot2)
+
+min( diamonds$price )
+
+qplot( carat, price, data=diamonds, color=cut )
+```
+
+
+have you seen how expensive the diamonds are!??! the most expensive ones cost *$`r max( diamonds$price )` FFS!*
+

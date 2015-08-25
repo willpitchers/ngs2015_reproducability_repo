@@ -1,0 +1,40 @@
+---
+title: "practice_ryan"
+author: "Will Pitchers"
+date: "25 August 2015"
+output: word_document
+---
+
+```{r set seed, eval=TRUE, echo=TRUE}
+# runif(1, 0, 10^8)
+set.seed(seed = 71239463)
+```
+
+```{r install packages, eval=FALSE, echo=TRUE}
+#install.packages("devtools")
+library("devtools")
+#install.packages("ggplot2")
+library("ggplot2")
+#install.packages("RCurl")
+library("RCurl")
+#install.packages("vegan")
+library("vegan")
+```
+
+```{r adonis, eval=TRUE, echo = TRUE}
+URL<-("https://raw.githubusercontent.com/ryanjw/ngs-3rdweek/master/visualizations/datasets/fly_data.txt")
+
+dataset<-read.table(textConnection(getURL(URL)),header=T,check.names=F,sep="\t")
+```
+
+Let’s look at the dataset that we loaded in
+
+```{r dataset info, eval=TRUE, echo = TRUE, fig.width = 4, fig.height = 4, fig.align='center'}
+dim(dataset) # Number of Rows, Number of columns 
+head( dataset[, 1:8] )
+```
+
+```{r}
+ggplot(dataset)+geom_histogram(aes(x=FBgn0000022,fill=fly,alpha=0.5)) + ggtitle("FBgn0000022 Transcript")# Plot a histogram of the distribution of the number of transcripts for the "FBgn0000022" transcript.
+```
+
